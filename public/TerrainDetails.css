@@ -1,0 +1,198 @@
+.pagedetail{
+
+    overflow-y: auto;
+    height: 100%;
+    /* background-color: #8BC462; */
+    background-color: #ffffff;
+}
+.pagedetail .pageDetails .photo-form .photo-container .photo-list .photo-item {
+    
+    /* position: relative; */
+    img{
+        width: 250px;
+        height: 250px;
+        margin: 15px;
+        border-radius: 25px;
+        z-index: -1;
+    }
+    button{
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        float: right;
+        margin-right: 25px;
+        background-color: #ffffff;
+        margin-top: -80px;
+        z-index: 1;
+        position: relative;
+        border: none;
+    }
+    svg{
+        color: #173602;
+        width: 20px;
+        height: 20px;
+    }
+    
+}
+
+
+.pagedetail .pageDetails .photo-form .photo-container .photo-list{
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    justify-content: start;
+    height: 300px;
+    width: auto;
+    /* overflow: visible; */
+}
+
+.pagedetail .pageDetails .photo-form .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button{
+        margin-right: 25px;
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #8bc462;
+        border: none;
+    }
+    input{
+        display: flex;
+        align-items: center;
+        margin-left: 25px;
+        width: 230px;
+        height: 40px;
+        border-radius: 10px;
+        color: #173602;
+        border: 1px solid #8bc462;
+    }
+
+    
+}
+
+.pagedetail .pageDetails .photo-form .description{
+
+    .titre{
+        display: inline;
+        justify-content: start;
+        width: 100%;
+        height: auto;
+
+        p{
+            margin-top: -30px;
+            text-align: left;
+            color: #173602;
+            display: flex;
+            font-size: 16px;
+        }
+
+        .titremodif{
+            display: flex;
+            align-items: center;
+            justify-content:  space-between;
+            margin: 25px;
+
+            h2{
+                text-align: left;
+                color: #173602;
+                display: flex;
+            }
+            svg{
+                width: 20px;
+                height: 20px;
+                color: #173602;
+            }
+            button{
+                background-color: #ffffff;
+                border: none;
+                height: 40px;
+                
+            }
+
+        }
+
+        .textmodif{
+            margin: 25px;
+            border-radius: 10px;
+            button{
+                background-color: #8bc462;
+                border: none;
+                height: 40px;
+                width: 100px;
+                border-radius: 10px;
+                
+            }
+        }
+
+        .geo{
+            display: inline-block;
+            align-items: center;
+            justify-content:  space-between;
+            margin: 25px;
+
+            h2{
+                text-align: left;
+                color: #173602;
+                display: flex;
+            }
+        }
+
+        .taille{
+            margin-left: 25px;
+            margin-right: 25px;
+
+            h2{
+                text-align: left;
+                color: #173602;
+                display: flex;
+            }
+
+            .dim{
+                display: flex;
+                justify-content: space-between;
+                color: #173602;
+
+                h4{
+                    padding-bottom: 10px;
+                    color: #8bc462;
+                }
+
+               
+            }
+        }
+
+        .parcelle{
+            height: auto;
+            width: 100%;
+            display: inline;
+            .pa{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: auto;
+                margin-left: 25px;
+                margin-right: 25px;
+                h2{
+                    color: #173602;
+                }
+                p{
+                    margin-top: 20px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #ffffff;
+                    background-color: #8bc462;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 25px;
+                }
+            }
+            
+        }
+        
+    } 
+}
