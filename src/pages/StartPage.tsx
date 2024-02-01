@@ -9,13 +9,14 @@ const StartPage: React.FC = () => {
     const timeoutId = setTimeout(() => {
       console.log('StartPage rendered');
       history.push('/HomePage');
-    }, 4000);
+    }, 50000);
 
     return () => clearTimeout(timeoutId);
   }, [history]);
 
   return (
     <div className="start-page">
+      <img src="../../public/assets/img/logo.png" alt="" />
       <h1 className="titre">Bienvenu</h1>
       <p>Un terrain optimal associé à une culture exceptionnelle.</p>
     </div>

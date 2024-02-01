@@ -1,0 +1,789 @@
+{
+	"info": {
+		"_postman_id": "a0c5417a-2984-4c3d-b32a-087f5e4ff5b1",
+		"name": "cloud-cropfarm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31485438"
+	},
+	"item": [
+		{
+			"name": "liste terrains",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/terrains",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"terrains"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Terrain proprietaire validés",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/terrains",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"terrains"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Terrain proprietaire non validés",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/terrains/proprietaire/invalid/1",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"terrains",
+						"proprietaire",
+						"invalid",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creer Terrain",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_proprietaire\": 3,\n    \"desc_terrain\": \"Nouvelle description\",\n    \"coord_location\": \"Nouvelles coordonnées\",\n    \"longueur\": 100,\n    \"largeur\": 50,\n    \"corbeille\": 0\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/terrains",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"terrains"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer Terrain Definitif",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/terrains/4",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"terrains",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier Terrain",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"desc_terrain\": \"ici c'est Andoharanofotsy\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/terrains/{idterrain}",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"terrains",
+						"{idterrain}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valider Terrain",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"corbeille\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/terrains/{idterrain}",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"terrains",
+						"{idterrain}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Desactiver Terrain",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"corbeille\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/terrains/{idterrain}",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"terrains",
+						"{idterrain}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste parcelles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/parcelles",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"parcelles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste parcelles par Terrain",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/parcelles/terrains/2",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"parcelles",
+						"terrains",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creer parcelle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_terrain\": 3,\n    \"rendement\": 10,\n    \"longueur\": 100,\n    \"largeur\": 50,\n    \"corbeille\": 0\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/parcelles",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"parcelles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier parcelle",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rendement\" : 20\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/parcelles/7",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"parcelles",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer Parcelle",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"corbeille\" : 1\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/parcelles/7",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"parcelles",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer Parcelle definitif",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/parcelles/6",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"parcelles",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Proprietaires / Parcelle details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/parcelles/list",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"parcelles",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste parcelle par propriétaire",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/parcelles/proprietaires/6",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"parcelles",
+						"proprietaires",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste plantes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/plantes/active",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"plantes",
+						"active"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste plantes par catégorie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/plantes/categories/2",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"plantes",
+						"categories",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creer Plante",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_categorie_culture\": 2,\n    \"nom_plante\": \"celeri\",\n    \"prixachat\": 250.0,\n    \"prixvente\": 300.0,\n    \"sprite_plante\": \"none\",\n    \"placeingamemaker\": 0,\n    \"corbeille\": 0,\n    \"rendement\":21\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/plantes",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"plantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier Plante",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rendement\": 18\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/plantes/2",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"plantes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer Plante Definitif",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Liste propriétaires",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/proprietaires",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"proprietaires"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inscription",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nom\": \"Faker\",\n    \"mail\": \"fake@gmail.com\",\n    \"mdp\": \"mdpehe\",\n    \"dtn\": 1325462400000,\n    \"corbeille\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/proprietaires",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"proprietaires"
+					]
+				}
+			},
+			"response": []
+		},
+		
+		{
+			"name": "Liste Action Planter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/planters",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"planters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "planter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_parcelle\": 1,\n    \"id_plante\": 3,\n    \"dateaction\": \"2024-01-03\",\n    \"etat\": 0\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/planters",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"planters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prévisions Simulations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/planters/simulations",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"planters",
+						"simulations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simulations par Terrain",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Liste Categorie Culture",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/categories-culture/4",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"categories-culture",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creer Categorie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nomcategorie\": \"concassés\",\n    \"corbeille\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/categories-culture",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"categories-culture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier categorie",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nomcategorie\": \"concassés\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/categories-culture/id",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"categories-culture",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Discussions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://cropfarmback-production.up.railway.app/api/proprietaire/messagerie",
+					"protocol": "https",
+					"host": [
+						"cropfarmback-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"proprietaire",
+						"messagerie"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

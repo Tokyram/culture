@@ -17,6 +17,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="home-page">
+      <img src="../../public/assets/img/logo.png" alt="" />
       <button className='btn1' onClick={redirectToPage1}>Créer un compte</button>
       <button className='btn2' onClick={redirectToPage2}>Se connecter</button>
     </div>
