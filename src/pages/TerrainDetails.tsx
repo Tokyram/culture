@@ -1,19 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import '../../public/TerrainDetails.css';
 import BurgerMenu from './BurgerMenu';
 import TerrainMap from './TerrainMap';
 import ParcelleComponent from './ParcelleList';
+import { useParams } from 'react-router-dom';
+import axios from 'axios'; // Importez axios
+
+interface RouteParams {
+  userId: string;
+  idTerrain: string;
+}
 
 const TerrainDetails = () => {
   const [photos, setPhotos] = useState(['demar.jpg', 'demar1.jpg', 'demar1.jpg', 'demar.jpg','demar1.jpg',]);
   const [newPhoto, setNewPhoto] = useState('');
-  const [isEditMode, setIsEditMode] = useState(false); // Nouvel état pour gérer le mode de modification du paragraphe
-  const [description, setDescription] = useState("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,");
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [terrain, setTerrain] = useState<any>();
+  const [description, setDescription] = useState('');
 
+  const { idTerrain } = useParams<RouteParams>();
   const [style, set] = useSpring(() => ({
     transform: 'translateX(0%)',
   }));
+
+  useEffect(() => {
+    // Utilisation d'Axios pour effectuer la requête HTTP
+    axios.get(`https://cropfarmback-production.up.railway.app/terrains/${idTerrain}`)
+      .then(response => {
+        // Mettre à jour l'état avec les détails du terrain récupérés depuis l'API
+        setTerrain(response.data);
+        // Mettre à jour la description si elle est disponible dans les données récupérées
+        if (response.data && response.data.desc_terrain) {
+          console.log(response.data.desc_terrain);
+          setDescription(response.data.desc_terrain);
+        }
+      })
+      .catch(error => console.error('Error fetching terrain details:', error));
+  }, [ idTerrain]);
 
   const handleAddPhoto = () => {
     if (newPhoto.trim() !== '') {
@@ -32,9 +56,7 @@ const TerrainDetails = () => {
   };
 
   const handleValidateEdit = () => {
-    // Sauvegarder les modifications (par exemple, mettre à jour la valeur de `description`)
-    // Vous pouvez également implémenter une logique de sauvegarde côté serveur si nécessaire.
-    setIsEditMode(false); // Sortir du mode édition après validation
+    setIsEditMode(false);
   };
 
   const terrains = [
@@ -96,7 +118,7 @@ const TerrainDetails = () => {
                 <div className="titre">
 
                     <div className="titremodif">
-                        <h2>Nom du terrain</h2>
+                        <h2>Nom du terrain {terrain && terrain.id_terrain}</h2>
                             <button onClick={handleEditDescription}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -127,11 +149,11 @@ const TerrainDetails = () => {
                         <div className="dim">
                             <div className="lo">
                                 <h4>Longueur</h4>
-                                <p>150m</p>
+                                <p>{terrain && terrain.longueur} m</p>
                             </div>
                             <div className="la">
                                 <h4>Largeur</h4>
-                                <p>50m</p>
+                                <p>{terrain && terrain.largeur} m</p>
 
                             </div>
                         </div>
@@ -140,7 +162,7 @@ const TerrainDetails = () => {
                     <div className="geo">
                         <h2>Longitude et Latiude</h2>
                         <div className="map">
-                            <TerrainMap />
+                            <TerrainMap  />
                         </div>
                     </div>
 

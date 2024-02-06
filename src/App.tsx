@@ -23,7 +23,7 @@ const App: React.FC = () => (
           <Route path="/Login" component={Login} exact />
           <Route path="/TerrainPage/:userId" component={TerrainPage} exact />
           <Route path="/Home" component={Home} exact />
-          <Route path="/TerrainDetails" component={TerrainDetails} exact />
+          <Route path="/TerrainDetails/:idTerrain" component={TerrainDetails} exact />
           <Route path="/ParcelleDetails" component={ParcelleDetails} exact />
           <Redirect from="/" to="/start" exact />
         </Switch>
