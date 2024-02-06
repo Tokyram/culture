@@ -1,39 +1,43 @@
-// TerrainPage.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import TerrainList from './TerrainList';
 import BurgerMenu from './BurgerMenu';
 import '../../public/TerrainPage.css';
-import { useHistory } from 'react-router';
-const TerrainPage = () => {
+import { useHistory, useParams } from 'react-router-dom';
+import axios from 'axios';
 
+interface RouteParams {
+  userId: string;
+}
+const TerrainPage = () => {
   const history = useHistory();
-  const redirectToPage2 = () => {
-      history.push('/Home');
+  console.log("param",useParams());
+
+  const { userId } = useParams<RouteParams>(); // Utilisez useParams pour récupérer les paramètres d'URL
+  const [terrains, setTerrains] = useState([]); // État pour stocker les données des terrains
+  useEffect(() => {
+    // Fonction pour récupérer la liste des terrains de l'utilisateur depuis l'API
+    const fetchUserTerrains = async () => {
+      try {
+        const response = await axios.get(`https://cropfarmback-production.up.railway.app/terrains/proprietaire/valid/${userId}`);
+        console.log(response.data);
+        
+       
+          setTerrains(response.data);
+        
+         // Met à jour l'état avec les données des terrains récupérées depuis l'API
+      } catch (error) {
+        console.error("Erreur lors de la récupération de la liste des terrains de l'utilisateur :", error);
+        // Gérer les erreurs de récupération des données des terrains ici
+      }
     };
 
-  const terrains = [
-    {
-      id: 1,
-      name: 'Terrain 1',
-      backgroundImage: 'demar.jpg',
-    },
-    {
-      id: 2,
-      name: 'Terrain 2',
-      backgroundImage: 'demar1.jpg',
-    },
-    {
-      id: 3,
-      name: 'Terrain 1',
-      backgroundImage: 'demar.jpg',
-    },
-    {
-      id: 4,
-      name: 'Terrain 2',
-      backgroundImage: 'demar1.jpg',
-    },
-    // ... autres terrains
-  ];
+    fetchUserTerrains(); // Appel de la fonction pour récupérer les données des terrains lors du chargement du composant
+  }, [userId]); // Utilisez userId comme dépendance pour effectuer la requête chaque fois que l'userId change
+
+  const redirectToPage2 = () => {
+    history.push(`/Home/${userId}`);
+  };
+  
 
   return (
     <div className="page">
@@ -46,10 +50,9 @@ const TerrainPage = () => {
           </svg></span></button>
         </div>
         <div className="list">
-          <TerrainList terrains={terrains} />
+          <TerrainList terrains={terrains} /> {/* Passez les données des terrains au composant TerrainList */}
         </div>
       </div>
-      
     </div>
   );
 };

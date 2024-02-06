@@ -2,14 +2,15 @@
 
 .terrain-container {
     display: flex;
+    height: auto;
     flex-wrap: wrap;
-    justify-content: space-around;
-    overflow-y: auto;
+    justify-content: center;
+    margin-top: 400px;
   }
   
   .terrain-container .terrain-item {
     width: 300px;
-    height: auto;
+    height: 308px;
     margin: 10px;
     border-radius: 10px;
     background-color: #8BC462;
@@ -25,8 +26,18 @@
   
   .terrain-container .terrain-info {
     text-align: center;
-    display: flex;
-    justify-content: space-between;
+    display: inline;
+    /* justify-content: space-between; */
+    h3{
+      font-size: 40px;
+      margin-top: 10px;
+      margin-left: 15px;
+      font-weight: bolder;
+      color: #173602;
+    }
+    p{
+      margin: 20px;
+    }
   }
   
   .terrain-container .terrain-info button {
@@ -42,6 +53,25 @@
     justify-content: center;
     align-items: center;
   }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .terrain-container .terrain-info button {
+    animation-name: pulse; /* Applique l'animation de pulsation au survol du bouton */
+    animation-duration: 1s; /* Durée de l'animation */
+    animation-iteration-count: infinite; /* Nombre de fois que l'animation est répétée (infini dans ce cas) */
+  }
+  
   
   .terrain-container .terrain-info button svg{
     color: #173602;

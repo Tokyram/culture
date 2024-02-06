@@ -12,19 +12,6 @@ import TerrainPage from './pages/TerrainPage';
 import TerrainDetails from './pages/TerrainDetails';
 import ParcelleDetails from './pages/ParcelleDetails';
 
-// import '@ionic/react/css/core.css';
-// import '@ionic/react/css/normalize.css';
-// import '@ionic/react/css/structure.css';
-// import '@ionic/react/css/typography.css';
-// import '@ionic/react/css/padding.css';
-// import '@ionic/react/css/float-elements.css';
-// import '@ionic/react/css/text-alignment.css';
-// import '@ionic/react/css/text-transformation.css';
-// import '@ionic/react/css/flex-utils.css';
-// import '@ionic/react/css/display.css';
-
-// import './theme/variables.css';
-
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
@@ -34,7 +21,7 @@ const App: React.FC = () => (
           <Route path="/HomePage" component={HomePage} exact />
           <Route path="/Inscription" component={Inscription} exact />
           <Route path="/Login" component={Login} exact />
-          <Route path="/TerrainPage" component={TerrainPage} exact />
+          <Route path="/TerrainPage/:userId" component={TerrainPage} exact />
           <Route path="/Home" component={Home} exact />
           <Route path="/TerrainDetails" component={TerrainDetails} exact />
           <Route path="/ParcelleDetails" component={ParcelleDetails} exact />

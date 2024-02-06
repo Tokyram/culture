@@ -44,7 +44,7 @@ const Login: React.FC<{ objname: string }> = ({ objname }) => {
       localStorage.setItem('username', username);
       localStorage.setItem('usermail', usermail);
 
-      history.push('/TerrainDetails');
+      history.push(`/TerrainPage/${userId}`);
       // Rediriger vers le tableau de bord ou effectuer d'autres actions en fonction de la réponse
     } catch (error) {
       // Gérer les erreurs d'authentification
@@ -61,9 +61,14 @@ const Login: React.FC<{ objname: string }> = ({ objname }) => {
   return (
     <div className='login-page'>
       <div className="titre">
+        <div className="co">
+        <img src="../../public/assets/img/logo.png" alt="" />
+
         <h2>Login</h2>
+        </div>
+      
+        
       </div>
-      <div className="title" >Connectez vous à votre compte {objname}</div>
 
       <form onSubmit={handleSubmit} className='formulaire'>
         <div className="log">
@@ -80,6 +85,10 @@ const Login: React.FC<{ objname: string }> = ({ objname }) => {
         <br />
         <button type="submit" className='btn1'>Se connecter</button>
       </form>
+      <div className="title" >
+        <p>Connectez vous à votre compte {objname}</p>
+      </div>
+
       <button type="button" className='btn2' onClick={redirectToPage2}>Retour</button>
     </div>
   );

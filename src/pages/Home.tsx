@@ -1,77 +1,92 @@
-// HomePage.js (ou tout autre composant où vous utilisez BurgerMenu)
 import React, { useState } from 'react';
-import BurgerMenu from './BurgerMenu';
 import '../../public/Home.css';
-import { useHistory } from 'react-router';
+import BurgerMenu from './BurgerMenu';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios'; // Importez axios pour effectuer des appels API
+
 const Home = () => {
-const history = useHistory();
-const [selectedPhotos, setSelectedPhotos] = useState([]);
+  const history = useHistory();
 
   const [formData, setFormData] = useState({
-    nom: '',
-    prenom: '',
-    email: '',
-    motDePasse: '',
-    confirmationMotDePasse: '',
+    coordone: '',
+    longueur: '',
+    largeur: '',
+    description: '',
   });
+
+  let userId = localStorage.getItem('userId'); // Récupérer l'ID de l'utilisateur connecté depuis le localStorage
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log('Données soumises :', formData);
-  };
+    
+    try {
+      // Appel de l'API pour créer un nouveau terrain
+      const response = await axios.post("https://cropfarmback-production.up.railway.app/terrains", {
+        id_proprietaire: userId, // Utilisez l'ID de l'utilisateur connecté
+        desc_terrain: formData.description,
+        coord_location: formData.coordone,
+        longueur: formData.longueur,
+        largeur: formData.largeur,
+        corbeille: 0
+      });
 
-  const handlePhotoChange = (e: { target: { files: any; }; }) => {
-    const files = e.target.files;
-    setSelectedPhotos(Array.from(files));
+      // Gérer la réponse de l'API
+      console.log("Réponse de l'API :", response.data);
+      
+      // Rediriger vers la page appropriée après la création du terrain
+      history.push('/Home');
+    } catch (error) {
+      // Gérer les erreurs lors de la création du terrain
+      console.error("Erreur lors de la création du terrain :", error);
+      // Vous pouvez afficher un message d'erreur à l'utilisateur ici
+    }
   };
 
   const redirectToPage2 = () => {
-    history.push('/Homepage');
+    history.push(`/TerrainPage/${userId}`);
   };
+  
 
-  const redirectToPage1 = () => {
-    history.push('/TerrainPage');
-  };
   return (
-    
     <div className="page">
       <BurgerMenu />
-    <div className="page-container">
-      <div className="titre">
-        <h1>Isérer nouveau <br />terrain</h1>
-      </div>
+      <div className="page-container">
+        <div className="titre">
+          <h1>Nouveau terrain</h1>
+        </div>
 
-      <form onSubmit={handleSubmit} className='formulaire'>
-        <label>
-          Parcelle : <br />
-          <input type="text" placeholder='nombre de parcelle' name="nom" value={formData.nom} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Longueur :<br />
-          <input type="text" placeholder='longueur du terrain' name="prenom" value={formData.prenom} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Largeur :<br />
-          <input type="email" placeholder='largeur du terrain' name="email" value={formData.email} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Longitude et latitude :<br />
-          {/* <input type="password" placeholder='votre mot de passe' name="motDePasse" value={formData.motDePasse} onChange={handleChange} /> */}
-          <button type="submit" className='btn3' onClick={redirectToPage1}>Voir map</button>
-        </label>
-        <br />
-        
-        <button type="submit" className='btn1' onClick={redirectToPage1}>Valider</button>
-      </form>
-      <button type="submit" className='btn2' onClick={redirectToPage2}>Retour</button>
+        <form onSubmit={handleSubmit} className='formulaire'>
+          <label>
+            Coordonnée Localisation :<br />
+            <input type="text" placeholder='votre coordonnée' name="coordone" value={formData.coordone} onChange={handleChange} />
+          </label>
+
+          <br />
+          <label>
+            Longueur :<br />
+            <input type="number" placeholder='longueur du terrain' name="longueur" value={formData.longueur} onChange={handleChange} />
+          </label>
+          <br />
+          <label>
+            Largeur :<br />
+            <input type="number" placeholder='largeur du terrain' name="largeur" value={formData.largeur} onChange={handleChange} />
+          </label>
+          <br />
+          <label>
+            Description du terrain :<br />
+            <textarea placeholder='description du terrain' name="description" value={formData.description} onChange={handleChange} />
+          </label>
+          <br />
+
+          <button type="submit" className='btn1'>Valider</button>
+        </form>
+        <button type="button" className='btn2' onClick={redirectToPage2}>Voir Mes terrains</button>
       </div>
     </div>
   );

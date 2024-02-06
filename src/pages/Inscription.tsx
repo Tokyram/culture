@@ -46,7 +46,12 @@ const Inscription : React.FC = () => {
   return (
     <div className='inscription-page'>
       <div className="titre">
+      <div className="co">
+        <img src="../../public/assets/img/logo.png" alt="" />
+
         <h2>Inscription</h2>
+        </div>
+        
       </div>
       <form onSubmit={handleSubmit} className='formulaire'>
         <label>
