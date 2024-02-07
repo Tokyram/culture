@@ -14,6 +14,8 @@ const TerrainPage = () => {
 
   const { userId } = useParams<RouteParams>(); // Utilisez useParams pour récupérer les paramètres d'URL
   const [terrains, setTerrains] = useState([]); // État pour stocker les données des terrains
+  
+  
   useEffect(() => {
     // Fonction pour récupérer la liste des terrains de l'utilisateur depuis l'API
     const fetchUserTerrains = async () => {
@@ -35,7 +37,7 @@ const TerrainPage = () => {
   }, [userId]); // Utilisez userId comme dépendance pour effectuer la requête chaque fois que l'userId change
 
   const redirectToPage2 = () => {
-    history.push(`/Home/${userId}`);
+    history.push(`/Home`);
   };
   
 

@@ -7,10 +7,12 @@
   align-items: center;
   justify-content: space-between;
   padding: 25px;
-  margin-top: -10px;
+  margin-top: -13px;
   background-color: #8BC462;
-  position: relative;
+  position: fixed;
   z-index: 2;
+  border-radius: 20px;
+  width: 87%;
 }
 
 .logo {

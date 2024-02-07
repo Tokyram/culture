@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../public/Home.css';
 import BurgerMenu from './BurgerMenu';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios'; // Importez axios pour effectuer des appels API
 
 const Home = () => {

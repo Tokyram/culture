@@ -11,6 +11,7 @@ import './App.css';
 import TerrainPage from './pages/TerrainPage';
 import TerrainDetails from './pages/TerrainDetails';
 import ParcelleDetails from './pages/ParcelleDetails';
+import ParcelleAjout from './pages/ParcelleAjout';
 
 const App: React.FC = () => (
   <IonApp>
@@ -25,6 +26,7 @@ const App: React.FC = () => (
           <Route path="/Home" component={Home} exact />
           <Route path="/TerrainDetails/:idTerrain" component={TerrainDetails} exact />
           <Route path="/ParcelleDetails" component={ParcelleDetails} exact />
+          <Route path="/ParcelleAjout/:idTerrain" component={ParcelleAjout} exact />
           <Redirect from="/" to="/start" exact />
         </Switch>
       </IonRouterOutlet>

@@ -195,6 +195,28 @@ button:hover{
             height: auto;
             width: 100%;
             display: inline;
+
+            button{
+                width: 50px;
+                height: 50px;
+                margin: 10px;
+                border-radius: 24px;
+                border: none;
+                font-size: 20px;
+                font-weight: bold;
+                background-color: #173602;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 100px;
+
+                svg{
+                    color: #ffffff;
+                    width: 50px;
+                    height: 50px;
+                    margin-top: 5px;
+                }
+            }
             .pa{
                 display: flex;
                 justify-content: space-between;
@@ -203,7 +225,7 @@ button:hover{
                 margin-left: 25px;
                 margin-right: 25px;
                 h2{
-                    color: #173602;
+                    color: #ffffff;
                 }
                 p{
                     margin-top: 20px;

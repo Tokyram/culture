@@ -4,7 +4,7 @@ import '../../public/TerrainDetails.css';
 import BurgerMenu from './BurgerMenu';
 import TerrainMap from './TerrainMap';
 import ParcelleComponent from './ParcelleList';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios'; // Importez axios
 
 interface RouteParams {
@@ -18,8 +18,10 @@ const TerrainDetails = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [terrain, setTerrain] = useState<any>();
   const [description, setDescription] = useState('');
-
+  const history = useHistory();
   const { idTerrain } = useParams<RouteParams>();
+  const { userId } = useParams<RouteParams>(); 
+  const [parcelles, setParcelles] = useState<any[]>([]);
   const [style, set] = useSpring(() => ({
     transform: 'translateX(0%)',
   }));
@@ -38,6 +40,16 @@ const TerrainDetails = () => {
       })
       .catch(error => console.error('Error fetching terrain details:', error));
   }, [ idTerrain]);
+
+
+  useEffect(() => {
+    axios.get(`https://cropfarmback-production.up.railway.app/parcelles/terrains/${idTerrain}`)
+        .then(response => {
+            setParcelles(response.data);
+        })
+        .catch(error => console.error('Error fetching parcelles:', error));
+  }, [idTerrain]);
+
 
   const handleAddPhoto = () => {
     if (newPhoto.trim() !== '') {
@@ -59,29 +71,9 @@ const TerrainDetails = () => {
     setIsEditMode(false);
   };
 
-  const terrains = [
-    {
-      id: 1,
-      name: 'Parcelle 1',
-      backgroundImage: 'demar.jpg',
-    },
-    {
-      id: 2,
-      name: 'Parcelle 2',
-      backgroundImage: 'demar1.jpg',
-    },
-    {
-      id: 3,
-      name: 'Parcelle 3',
-      backgroundImage: 'demar.jpg',
-    },
-    {
-      id: 4,
-      name: 'Parcelle 4',
-      backgroundImage: 'demar1.jpg',
-    },
-    // ... autres terrains
-  ];
+  const redirectToPage2 = () => {
+    history.push(`/ParcelleAjout/${idTerrain}`);
+  };
 
   return (
     <div className="pagedetail">
@@ -170,9 +162,13 @@ const TerrainDetails = () => {
                             <div className="pa">
                                 <h2>Vos Parcelles</h2>
 
-                                <p>21 </p>
+                                <button onClick={redirectToPage2}><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16">
+                                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                                </svg></span></button>
+
+                                
                             </div>
-                      <ParcelleComponent  terrains={terrains} />
+                      <ParcelleComponent  parcelles={parcelles} />
                     </div>
                 </div>
             </div>

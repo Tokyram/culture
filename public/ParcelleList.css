@@ -5,7 +5,7 @@
     flex-wrap: nowrap;
     justify-content: start;
     overflow-x: auto;
-    height: 300px;
+    height: 200px;
     align-items: center;
 
   }
@@ -29,6 +29,7 @@
     text-align: center;
     display: flex;
     justify-content: space-between;
+    margin: 10px;
   }
   
   .parcelle-container .parcelle-info button {

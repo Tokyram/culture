@@ -4,7 +4,7 @@ import React from 'react';
 import '../../public/ParcelleList.css';
 import { useHistory } from 'react-router';
 
-const ParcelleComponent: React.FC<{ terrains: any[] }> = ({ terrains }) => {
+const ParcelleComponent: React.FC<{ parcelles: any[] | undefined}> = ({ parcelles }) => {
 
     const history = useHistory();
 //   const handleDetailsClick = (terrainId: number) => {
@@ -18,11 +18,11 @@ const ParcelleComponent: React.FC<{ terrains: any[] }> = ({ terrains }) => {
 
   return (
     <div className="parcelle-container">
-      {terrains.map((terrain, index) => (
+      { Array.isArray(parcelles) && parcelles.map((parcelle, index) => (
         <div key={index} className="parcelle-item">
-          <img src={terrain.backgroundImage} alt={`Terrain ${index}`} />
+          {/* <img src={parcelle.backgroundImage} alt={`parcelle ${index}`} /> */}
           <div className="parcelle-info">
-            <h3>{terrain.name}</h3>
+            <h3>{parcelle.nom_plantes}</h3>
             {/* <button onClick={() => handleDetailsClick(terrain.id)} ><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-short" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"/>
             </svg></span></button> */}
