@@ -1,11 +1,13 @@
 .pagedetail{
-
+    background: url('assets/img/59529-O9JCUO-201-01.png') center/cover no-repeat;
     overflow-y: auto;
     height: 100%;
     /* background-color: #8BC462; */
     background-color: #173602;
-
-   
+    
+    .pageDetails{
+        margin-top: 90px;
+    }
 }
 
 button:hover{
@@ -29,14 +31,14 @@ button:hover{
         border-radius: 25px;
         float: right;
         margin-right: 25px;
-        background-color: #ffffff;
+        background-color: transparent;
         margin-top: -80px;
         z-index: 1;
         position: relative;
         border: none;
     }
     svg{
-        color: #173602;
+        color: #ffffff  ;
         width: 20px;
         height: 20px;
     }
@@ -58,6 +60,7 @@ button:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     button{
         margin-right: 25px;
         width: 100px;
@@ -74,7 +77,7 @@ button:hover{
         height: 40px;
         border-radius: 10px;
         
-        color: #173602;
+        color: #ffffff;
         border: 1px solid #8bc462;
         padding: 2px;
     }
@@ -152,7 +155,7 @@ button:hover{
             align-items: center;
             justify-content:  space-between;
             margin: 25px;
-
+            margin-top: -20px;
             h2{
                 text-align: left;
                 color: #ffffff;
@@ -192,9 +195,10 @@ button:hover{
         }
 
         .parcelle{
+            margin-top: 30px;
             height: auto;
             width: 100%;
-            display: inline;
+            /* display: inline; */
 
             button{
                 width: 50px;
@@ -204,14 +208,14 @@ button:hover{
                 border: none;
                 font-size: 20px;
                 font-weight: bold;
-                background-color: #173602;
+                background-color: #ffffff;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 margin-left: 100px;
 
                 svg{
-                    color: #ffffff;
+                    color: #173602;
                     width: 50px;
                     height: 50px;
                     margin-top: 5px;
@@ -246,3 +250,4 @@ button:hover{
         
     } 
 }
+

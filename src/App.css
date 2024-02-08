@@ -2,13 +2,30 @@
 
 .ion-page {
     transition: transform 0.3s ease-out;
+    transition: opacity 0.5s ease-in-out;
   }
   
   .ion-page-enter-active {
     transform: translate3d(100%, 0, 0);
+    opacity: 0;
   }
   
   .ion-page-leave-active {
     transform: translate3d(-100%, 0, 0);
+    opacity: 1;
   }
-  
+
+  /* Définissez la transition pour le conteneur principal de la page */
+.page-transition {
+  transition: opacity 0.5s ease-in-out; /* Ajoute une transition d'opacité de 0.5 seconde */
+}
+
+/* Réduisez l'opacité pendant la transition */
+.page-transition-enter {
+  opacity: 0;
+}
+
+/* Restaurez l'opacité après la transition */
+.page-transition-enter-active {
+  opacity: 1;
+}

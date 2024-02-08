@@ -53,10 +53,18 @@ const TerrainDetails = () => {
 
   const handleAddPhoto = () => {
     if (newPhoto.trim() !== '') {
-      setPhotos([...photos, newPhoto]);
-      setNewPhoto('');
+      // Envoyer la requête POST pour ajouter la photo
+      axios.post(`https://cropfarmback-production.up.railway.app/terrains/ajouterphoto/${idTerrain}?photo=${newPhoto}`)
+        .then(response => {
+          // Si la requête est réussie, mettre à jour l'état des photos avec la nouvelle photo
+          setPhotos([...photos, newPhoto]);
+          setNewPhoto('');
+        })
+        .catch(error => console.error('Error adding photo:', error));
     }
   };
+
+  
 
   const handleRemovePhoto = (index: number) => {
     const updatedPhotos = photos.filter((_, i) => i !== index);
@@ -151,13 +159,6 @@ const TerrainDetails = () => {
                         </div>
                     </div>
 
-                    <div className="geo">
-                        <h2>Longitude et Latiude</h2>
-                        <div className="map">
-                            <TerrainMap  />
-                        </div>
-                    </div>
-
                     <div className="parcelle">
                             <div className="pa">
                                 <h2>Vos Parcelles</h2>
@@ -170,6 +171,14 @@ const TerrainDetails = () => {
                             </div>
                       <ParcelleComponent  parcelles={parcelles} />
                     </div>
+
+                    <div className="geo">
+                        <h2>Longitude et Latiude</h2>
+                        <div className="map">
+                            <TerrainMap  />
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

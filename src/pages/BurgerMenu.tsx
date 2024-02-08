@@ -16,8 +16,17 @@ const BurgerMenu = () => {
   
   const handleLinkClick = (link: LocationDescriptor<unknown>) => {
     console.log(`Navigating to ${link}`);
-    history.push(link);
-    toggleMenu();
+    if (link === '/HomePage') {
+      handleLogout();
+    } else {
+      history.push(link);
+      toggleMenu();
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.clear(); // Efface toutes les données du localStorage
+    history.push('/Homepage'); // Redirige vers la page de connexion
   };
 
   return (
@@ -32,12 +41,11 @@ const BurgerMenu = () => {
       {menuOpen && (
         <div className="menu">
           <div className="menu-item" onClick={() => handleLinkClick('/HomePage')}>
-          <IonIcon icon={logOutOutline} />
-            Deconnection
+            <IonIcon icon={logOutOutline} />
+            Déconnexion
           </div>
         </div>
       )}
-
     </div>
   );
 };

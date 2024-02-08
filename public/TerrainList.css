@@ -10,7 +10,7 @@
   
   .terrain-container .terrain-item {
     width: 300px;
-    height: 220px;
+    height: 240px;
     margin: 10px;
     border-radius: 10px;
     background-color: #8BC462;
@@ -27,6 +27,14 @@
   .terrain-container .terrain-info {
     text-align: center;
     display: inline;
+
+    .sarykely{
+      width: 60px;
+      height: auto;
+      margin-top: -250px;
+      z-index: 1;
+      margin-left: 230px;
+    }
 
     .info{
       display: flex;

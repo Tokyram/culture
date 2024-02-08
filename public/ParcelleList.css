@@ -13,6 +13,7 @@
   .parcelle-container .parcelle-item {
     width: auto;
     margin: 15px;
+    height: 100px;
     border-radius: 10px;
     background-color: #8BC462;
     border-radius: 25px;
@@ -52,4 +53,22 @@
     height: 50px;
     margin-top: 5px;
     transform: rotate(60deg);
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .page .terrainListe .titre button {
+    animation-name: pulse; /* Applique l'animation de pulsation au survol du bouton */
+      animation-duration: 1s; /* Durée de l'animation */
+      animation-iteration-count: infinite; /* Nombre de fois que l'animation est répétée (infini dans ce cas) */
   }

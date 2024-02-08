@@ -25,7 +25,7 @@ const App: React.FC = () => (
           <Route path="/TerrainPage/:userId" component={TerrainPage} exact />
           <Route path="/Home" component={Home} exact />
           <Route path="/TerrainDetails/:idTerrain" component={TerrainDetails} exact />
-          <Route path="/ParcelleDetails" component={ParcelleDetails} exact />
+          <Route path="/ParcelleDetails/:idParcelle" component={ParcelleDetails} />
           <Route path="/ParcelleAjout/:idTerrain" component={ParcelleAjout} exact />
           <Redirect from="/" to="/start" exact />
         </Switch>
