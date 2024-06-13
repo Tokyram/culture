@@ -1,9 +1,9 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.corpfarm.app',
   appName: 'CropFarm',
-  webDir: 'dist',
+  webDir: 'build',
   server: {
     androidScheme: 'https'
   }

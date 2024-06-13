@@ -1,7 +1,7 @@
 {
-  "name": "CropFarm",
+  "name": "Cropfarm",
   "integrations": {
     "capacitor": {}
   },
-  "type": "react-vite"
+  "type": "react"
 }

@@ -40,21 +40,21 @@ function ParcelleDetails() {
         <h2>Taille</h2>
         <div className="dim-parcelle">
           <div className="lo">
-            <h3>Proprietaire</h3>
+            <h3>Longueur</h3>
             <p>{parcelleDetails?.longueur || 'Chargement en cours...'} m</p>
           </div>
           <div className="la">
-            <h3>Numero Parcelle</h3>
+            <h3>Largeur</h3>
             <p>{parcelleDetails?.largeur || 'Chargement en cours...'} m</p>
           </div>
         </div>
       </div>
 
       <div className="taille-parcelle">
-        <h2>Plante</h2>
+        <h2>Rendement</h2>
         <div className="dim-parcelle">
           <div className="lo">
-            <h3>Mesure</h3>
+            <h3>Rendement</h3>
             <p>{parcelleDetails?.rendement || 'Chargement en cours...'} </p>
           </div>
           {/* <div className="la">
